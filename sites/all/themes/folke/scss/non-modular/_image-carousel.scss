@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+.carousel{
+  z-index: 0;
+}
+
+.carousel__wrapper{
+  border-bottom: 10px solid darken($blue, 10%);
+}
+
+.carousel__image, 
+.header__image{
+  width: 100%;
+  @include prop-rem("height", 35);
+  background-color: white;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  overflow: hidden;
+
+}
+
+.cycle-slideshow{
+  width: 100%;
+}
+
+
+.carousel__image img{
+  @include prop-rem("height", 35);
+  width: auto;
+  max-width: none !important;
+
+  margin: 0 auto;
+  display: block;
+
+  @include respond-to("tablet"){
+    width: 100%;
+    height: auto;
+  }
+}
+
+.carousel__bar, .header__bar{
+  @include prop-rem("height", 14.5);
+}
+
+.carousel__nav{
+  background-color: $welcome-color-fallback;
+  background-color: $welcome-color;
+  width: 37px*2;
+  height: 37px;
+  @include prop-rem('margin-top', 1.8);
+  .m-arrow{
+    width: 37px;
+    height: 37px;
+  }
+  @at-root #{&}--right{
+    border-left: 1px solid $white;
+  }
+}

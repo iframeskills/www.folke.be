@@ -1,0 +1,75 @@
+@charset "UTF-8";
+
+$block-height: 6.25;
+
+.item-block{
+	@include prop-rem("height", $block-height);
+}
+
+.oldprice{
+	position: relative;
+	&:after
+	{
+		position: absolute;
+		left: 30%;
+		content: url("../img/cross.png");
+	}
+}
+
+.oldprice, .price{
+	@include rem(1.5);
+	font-weight: bold;
+}
+
+.item-block{
+	@at-root #{&}__thumb{
+		width: 15%;
+    height: 100%;
+    img{
+      max-height: 100%;
+    }
+	}
+	@at-root #{&}__content{
+		width: 70%;
+	}
+	@at-root #{&}__nav{
+		width: 15%;
+	}
+}
+
+.item-block__content{
+	@include prop-rem('line-height',1.6);
+	@include rem(1);
+	//@include prop-rem('padding', 0.5, 1);
+	padding: 1% 0 0 2%;
+
+	span:last-child{
+		//@include prop-rem('margin-left', 3);
+		margin-right: 3%;
+		float: right;
+	}
+}
+
+.item-block__nav{
+	width: 15%;
+}
+
+.details-btn, .cart-btn{
+	@include prop-rem("height", $block-height - 0.05);
+	width: 50%;
+	background-repeat: no-repeat;
+	background-position-x: 50%;
+	background-position-y: 50%;
+}
+
+.details-btn{
+	background-image: url("../img/detail.png");
+}
+.cart-btn{
+	background-color: $product-item-cart-color;
+	background-image: url("../img/cart.png");
+}
+
+.item-block-list{
+	@include prop-rem("margin-top", 2);
+}

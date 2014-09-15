@@ -1,0 +1,32 @@
+@charset "UTF-8";
+/*
+<div class="m-table">
+	<div class="m-table__row">
+		<div class="m-table__cell">
+		</div>
+	</div>
+	<div class="m-table__row" style="height:100px;">
+		<div class="m-table__cell">
+		</div>
+	</div>
+</div>
+*/
+
+.m-table{
+  display: table;
+  -dt-display: table;
+  table-layout: fixed;
+  width: 100%;
+
+  .m-table__row{
+    display:table-row;
+    -dt-display:table-row;
+  }
+
+  .m-table__cell{
+    display:table-cell;
+    -dt-display: table-cell;
+  }
+
+  @include respond-to( "lt-ie9" ) {  behavior: url( $polyfills-root + "display-table.min.htc") !important; }
+}

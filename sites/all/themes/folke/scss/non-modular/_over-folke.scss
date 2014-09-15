@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+.over-folke{
+	.header__image{
+		background-image: url("../img/carousel/over-folke.jpg");
+	}
+}
+.over-container__top{
+	@include clearfix;
+	@include prop-rem("margin-bottom", 1);
+}
+.page-container{
+	@include prop-rem("padding", 2, 1);
+	@at-root #{&}__contact{
+		display: block;
+		background-color: $segment-title-color;
+		width: 52px;
+		height: 53px;
+		background-repeat: no-repeat;
+		background-position-x: 50%;
+		background-position-y: 50%;
+		float: right;
+		background-image: url('../img/mail.png');
+	}
+}
+
+.over__content__text{
+	width: 90%;
+	margin: 0 auto;
+	@include rem(1.125);
+	@include prop-rem("line-height", 2.125);
+	@include prop-rem("margin-top", 1.8);
+	span{
+		font-weight: bold;
+		color:  $submenu-title-color;
+	}
+	a{
+		color:  $submenu-title-color;
+		font-weight: bold;
+    text-decoration: underline;
+	}
+	.folke-team{
+		@include prop-rem("margin-top", 1.5);
+	}
+}

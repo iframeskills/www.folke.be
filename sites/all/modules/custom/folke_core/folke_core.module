@@ -1,0 +1,284 @@
+<?php
+/**
+ * @file folke_core.module
+ *
+ * Core module code.
+ */
+
+/**
+ * Implements hook_views_api().
+ */
+function folke_core_views_api()
+{
+    return array(
+        'api' => 3.0,
+        'path' => drupal_get_path('module', 'folke_core') . '/views'
+    );
+}
+
+/*
+function folke_menu_link_alter(&$item, $menu)
+{
+    if ($item['menu_name'] == 'main-menu') {
+        $item['expanded'] = 1;
+    }
+}
+
+function folke_core_theme() {
+    $items = array();
+    $items['user_login'] = array(
+        'render element' => 'form',
+        'path' => drupal_get_path('theme', 'folke') . '/templates',
+        'template' => 'user-login'
+    );
+    $items['user_register_form'] = array(
+        'render element' => 'form',
+        'path' => drupal_get_path('theme', 'folke') . '/templates',
+        'template' => 'user-register-form'
+    );
+    $items['contact_site_form'] = array(
+        'render element' => 'form',
+        'path' => drupal_get_path('theme', 'folke') . '/templates',
+        'template' => 'contact-site-form'
+    );
+    $items['user_pass'] = array(
+        'render element' => 'form',
+        'path' => drupal_get_path('theme', 'folke') . '/templates',
+        'template' => 'user-pass',
+        'preprocess functions' => array(
+           'folke_core_preprocess_user_pass'
+        ),
+    );
+
+    return $items;
+}
+
+function folke_core_preprocess_user_pass(&$vars) {
+    //  alter the reset password form here
+}
+
+function folke_core_form_user_pass_alter(&$form, &$form_state) {
+    // $form['name']['#description'] = t('');
+    // $form['name']['#title'] = t('E-mail');
+    // $form['pass']['#description'] = t('');
+
+    $form['actions']['submit']['#value'] = t('Verstuur');
+
+    $form['actions']['submit']['#attributes']['class'][] = 'm-button';
+    $form['actions']['submit']['#attributes']['class'][] = 'login-send';
+}
+
+
+function folke_core_form_user_login_alter(&$form, &$form_state) {
+    $form['name']['#description'] = t('');
+    $form['name']['#title'] = t('E-mail');
+    $form['pass']['#description'] = t('');
+
+    $form['actions']['submit']['#value'] = t('Verstuur');
+
+    $form['actions']['submit']['#attributes']['class'][] = 'm-button';
+    $form['actions']['submit']['#attributes']['class'][] = 'login-send';
+
+    //$form['actions']['submit']['#validate'][] = 'folke_core_user_login_validate';
+    $form['#submit'][] = 'folke_core_user_login_submit';
+}
+
+function folke_core_user_login_submit(){
+    return true;
+}
+
+function folke_core_user_login_validate(&$form, &$form_state) {
+
+    $name = $form_state['values']['name'];
+    $pass = $form_state['values']['pass'];
+    $account = user_load_by_name($name);
+    if(!$account){
+        form_set_error('name', t('E-mail adres niet gevonden'));
+    }
+
+    if(!user_authenticate($name, $pass)){
+        form_set_error('pass', t('Het wachtwoord voor dit account was niet correct') );
+    }
+
+    $errors = form_get_errors();
+    foreach ($errors as $errorKey => $error) {
+        $form[$errorKey]['#suffix'] = '<div class="form__error">' . $error . $form[$errorKey]['#suffix'] . '</div>';
+    }
+}
+
+function folke_core_form_user_register_form_alter(&$form, &$form_state, $form_id) {
+
+    $form['name'] = array(
+        '#title' => t('Voornaam / Naam'),
+        '#type' => 'textfield',
+        '#required' => TRUE,
+        '#validate' => TRUE
+    );
+    $form['phone'] = array(
+        '#title' => t('Telefoon'),
+        '#type' => 'textfield',
+        '#required' => TRUE,
+        '#validate' => TRUE
+    );
+    $form['fax'] = array(
+        '#title' => t('Fax'),
+        '#type' => 'textfield'
+    );
+    $form['mail'] = array(
+        '#title' => t('E-mail'),
+        '#type' => 'textfield',
+        '#required' => TRUE,
+        '#validate' => TRUE
+    );
+    $form['pass'] = array(
+        '#title' => t('Passwoord'),
+        '#type' => 'password',
+        '#required' => TRUE,
+        '#validate' => TRUE
+    );
+
+    $form['company'] = array(
+        '#title' => t('Bedrijf'),
+        '#type' => 'textfield'
+    );
+    $form['btw'] = array(
+        '#title' => t('BTW-nummer'),
+        '#type' => 'textfield'
+    );
+
+    $form['straat'] = array(
+        '#title' => t('Straat'),
+        '#type' => 'textfield'
+    );
+    $form['postnummer'] = array(
+        '#title' => t('Postnummer'),
+        '#type' => 'textfield',
+        '#required' => TRUE,
+        '#validate' => TRUE
+    );
+    $form['gemeente'] = array(
+        '#title' => t('Gemeente'),
+        '#type' => 'textfield',
+        '#required' => TRUE,
+        '#validate' => TRUE
+    );
+    $form['land'] = array(
+        '#title' => t('Land'),
+        '#type' => 'textfield',
+        '#required' => TRUE,
+        '#validate' => TRUE
+    );
+
+    $form['actions']['submit'] = array(
+        '#type' => 'button',
+        '#value' => t('Registreer')
+    );
+
+    $form['actions']["submit"]["#attributes"]["class"][] = "m-button";
+    $form['actions']["submit"]["#attributes"]["class"][] = "contact-send";
+
+    $form['actions']['submit']['#validate'][] = 'folke_core_contact_site_form_validate';
+}
+
+function folke_core_form_contact_site_form_alter(&$form, &$form_state, $form_id)
+{
+    //disable stuff added by core
+    $form['subject']['#access'] = FALSE;
+    $form['copy']['#access'] = FALSE;
+
+    $form['name'] = array(
+        '#title' => t('Voornaam / Naam'),
+        '#type' => 'textfield',
+        '#required' => TRUE
+    );
+
+    $form['company'] = array(
+        '#title' => t('Bedrijf'),
+        '#type' => 'textfield',
+        '#required' => FALSE
+    );
+    $form['phone'] = array(
+        '#title' => t('Tel'),
+        '#type' => 'textfield',
+        '#required' => FALSE
+    );
+
+    $form['mail'] = array(
+        '#title' => t('E-mail'),
+        '#type' => 'textfield',
+        '#required' => TRUE,
+        '#validate' => TRUE
+    );
+
+    $form['message'] = array(
+        '#title' => t('Uw vraag'),
+        '#type' => 'textarea',
+        '#required' => TRUE
+    );
+
+
+    $form['actions']['submit'] = array(
+        '#type' => 'button',
+        '#value' => t('Verstuur')
+    );
+
+    $form['actions']["submit"]["#attributes"]["class"][] = "m-button";
+    $form['actions']["submit"]["#attributes"]["class"][] = "contact-send";
+
+    $form['actions']['submit']['#validate'][] = 'folke_core_contact_site_form_validate';
+}
+
+function folke_core_contact_site_form_validate(&$form, &$form_state, $form_id)
+{
+    if(!valid_email_address($form["mail"]["#value"])){
+        form_set_error('mail', t('Gelieve een correct e-mailadres te gebruiken.') );
+    }
+
+    $errors = form_get_errors();
+    foreach ($errors as $errorKey => $error) {
+        $form[$errorKey]['#suffix'] = '<div class="form__error">' . $error . $form[$errorKey]['#suffix'] . '</div>';
+    }
+}
+
+
+function folke_core_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'i18n_string_translate_page_form') {
+    // Loop all strings.
+    foreach ($form['strings']['all'] as $name => $field) {
+      // The field for [ block title / vocabulary name / vocabulary description / term name ] are textfields in ori language,
+      // but textareas when translating: change these to textfields.
+      if (
+        preg_match('/blocks:block:[0-9]+:title/i' , $name) ||
+        preg_match('/taxonomy:(vocabulary|term):[0-9]+:name/i' , $name) ||
+        preg_match('/taxonomy:vocabulary:[0-9]+:description/i' , $name)
+      ) {
+        $form['strings']['all'][$name]['#type'] = 'textfield';
+      }
+      // Change textarea to text_format and overwrite description which is already auto included in text_format fields.
+      elseif (
+        preg_match('/blocks:block:[0-9]+:body/i' , $name) ||
+        preg_match('/taxonomy:term:[0-9]+:description/i' , $name)
+      ) {
+        $form['strings']['all'][$name]['#type'] = 'text_format';
+        $form['strings']['all'][$name]['#description'] = '<br />';
+      }
+    }
+    // Add submit function.
+    $form['#submit'] = array_merge(array('_folke_core_form_submit') , $form['#submit']);
+  }
+}
+function _folke_core_form_submit($form, &$form_state) {
+  // Remove wysiwyg format because i18n cant handle it.
+  foreach ($form_state['values']['strings'] as $name => $field) {
+    if (
+      preg_match('/blocks:block:[0-9]+:body/i' , $name) ||
+      preg_match('/taxonomy:term:[0-9]+:description/i' , $name)
+    ){
+      unset($form_state['values']['strings'][$name]['format']);
+    }
+  }
+}
+
+?>
+
+*/

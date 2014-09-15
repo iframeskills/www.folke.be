@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+.contact{
+   .header__image{
+      background-image: url("../img/carousel/maps.jpg");
+   }
+}
+
+.contact__content{
+   input, textarea{
+      width: 100%;
+   }
+   textarea{
+      @include prop-rem("height", 12.5);
+   }
+}
+
+.contact__content--left{
+   @include prop-rem("margin", 0.5, 0);
+   @include prop-rem("padding", 1.5, 2.625);
+   border-right: solid 1px $divider-color;
+}
+
+.contact__content--right{
+   margin-left: 13%;
+   @include prop-rem("margin-top", 1);
+   h3{
+      color:  $submenu-title-color;
+      @include prop-rem("margin-top", 2);
+      @include prop-rem("margin-bottom", 1);
+      text-transform: uppercase;
+   }
+   a{
+      color: $black;
+   }
+}
+
+.contact .form-actions{
+   float: right;
+   @include prop-rem("margin-top", 0.7);
+}
+
+.form__error{
+  color: $red;
+  text-align: right;
+}

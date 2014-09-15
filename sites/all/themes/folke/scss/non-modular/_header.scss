@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+.header{
+	background-color: $header-color;
+	width: 100%;
+	color: $header-text-color;
+}
+
+.header__logo{
+	@include prop-rem("margin", 0);
+	a{
+		display: block;
+		background-image: url('../img/logo_small.png');
+    background-repeat: no-repeat;
+    background-position: top left;
+    width: 135px;
+    height: 132px;
+	}
+	h1{
+		position: relative;
+		top: -1000px;
+	}
+	h2{
+		color: $header-text-color;
+    position: absolute;
+    top: 75px;
+    left: 60px;
+    @include rem($sizeValue: 1);
+  }
+  @at-root #{&}__stars{
+    background-image: url("../img/star.png");
+    height: 11px;
+    display: inline-block;
+    width: 44px;
+    margin-left: 5px;
+  }
+}
+
+.header__menu{
+	font-weight: bold;
+  @include rem(1.125);
+  text-transform: uppercase;
+  width: 100%;
+
+ a{
+   color: $header-text-color;
+   text-align: center;
+ }
+
+  @include prop-rem("margin", 1, 0, 0, 0);
+  @include prop-rem("padding", 0.5, 0) ;
+  display: inline-block;
+}
+
+
+.header__phone{
+	background-image: url("../img/phone_brown.png");
+	background-repeat: no-repeat;
+	background-position: center right;
+  @include prop-rem("padding", 0, 2 , 0, 0);
+}

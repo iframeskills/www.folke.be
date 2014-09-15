@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+body{
+  font-family: $base-font;
+  color: $black;
+  @include rem(1.25);
+}
+
+div.p{
+  margin-bottom: 1em;
+}

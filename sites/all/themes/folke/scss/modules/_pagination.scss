@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+.m-pagination{
+  .m-pagination__title{
+    margin-right: 10px;
+  }
+  .m-pagination__title, ul{
+    display: inline;
+  }
+  li{
+    @include prop-rem("width", 1.68);
+    @include prop-rem("height", 1.68);
+    display: inline-block;
+    border: 1px solid $gray;
+    text-align: center;
+  }
+
+  a{
+    width: 100%;
+    height: 100%;
+    display:block;
+  }
+
+  a:hover, .isActive{
+    background-color: $submenu-title-color;
+    border: none;
+    color: $white;
+  }
+}

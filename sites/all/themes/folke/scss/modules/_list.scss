@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+.m-list{
+	border-top: 1px solid $divider-color;
+	@at-root #{&}__item{
+		border-bottom: 1px solid $divider-color;
+	}
+}
+
+.m-collapse-list{
+	li{
+		@include prop-rem("padding", 0.25, 0);
+	}
+
+	@at-root #{&}--expanded{
+		.subgroup-header{
+			background-image: url("../img/collapse_list_open.png");
+		}
+		li{
+			padding-left: 0;
+		}
+	}
+	@at-root #{&}--collapsed {
+		.subgroup-header{
+			background-image: url("../img/collapse_list_closed.png");
+		}
+		ul{
+			display: none;
+		}
+	}
+}
+
+.m-collapse-list--expanded, .m-collapse-list--collapsed{
+	li, .subgroup-header{
+		padding: 8px 16px!important;	
+	}
+	.subgroup-header{
+		background-repeat: no-repeat;
+		background-position-x: 2px;
+		background-position-y: 50%;
+	}
+}

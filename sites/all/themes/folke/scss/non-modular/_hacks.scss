@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+.main-content{
+	position: relative;
+	@include prop-rem("min-height", 35);
+	background: $white;
+}
+
+.carousel{
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+body.toolbar-drawer{
+	padding-top: 0!important;
+}

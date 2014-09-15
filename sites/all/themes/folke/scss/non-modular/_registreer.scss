@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+.registreer{
+	@include clearfix;
+	.segment-title{
+		@include prop-rem("margin-bottom", 1);
+	}
+	fieldset{
+		@include prop-rem("margin-top", 3);
+	}
+
+	legend{
+		color: $subtitle-color;
+		@include rem(1.875);
+		font-weight: bold;
+	}
+
+	input{
+		width: 100%;
+	}
+}
+
+.registreer .form-actions{
+	float: right;
+	@include prop-rem("margin-top", 2);
+}

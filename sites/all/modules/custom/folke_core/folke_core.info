@@ -1,0 +1,7 @@
+name = Folke core
+description = Core functionality
+package = Folke
+version = VERSION
+core = 7.x
+dependencies[] = views
+files[] = folke_core.module

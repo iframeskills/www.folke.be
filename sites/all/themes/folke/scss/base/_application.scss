@@ -1,0 +1,58 @@
+@charset "UTF-8";
+/*------------------------------------*\
+    APPLICATION.SCSS
+\*------------------------------------*/
+/**
+ *
+ * sass --watch --sourcemap style.scss:style.min.css --style compressed
+ *
+ * Here we import everything and place any application generic css
+ */
+
+@import "base-imports";
+
+@import "../layout/l-grid";
+@import "../layout/flex";
+@import "../layout/widths";
+@import "../layout/l-width-limiter";
+@import "../layout/dark-section";
+
+//app stuff
+
+//modules
+@import "../modules/table";
+@import "../modules/arrows";
+@import "../modules/divider";
+@import "../modules/segment-title";
+@import "../modules/product-item";
+@import "../modules/item-block";
+@import "../modules/list";
+@import "../modules/buttons";
+@import "../modules/member";
+@import "../modules/breadcrumbs";
+@import "../modules/pagination";
+@import "../modules/sidebar_segment";
+@import "../modules/steps";
+@import "../modules/tabs";
+
+//non-modular
+@import "../non-modular/header";
+@import "../non-modular/submenu";
+@import "../non-modular/footer";
+
+@import "../non-modular/image-carousel";
+@import "../non-modular/home-welcome";
+@import "../non-modular/bestsellers";
+@import "../non-modular/home-bottom";
+@import "../non-modular/registreer";
+@import "../non-modular/login";
+@import "../non-modular/over-folke";
+@import "../non-modular/contact";
+@import "../non-modular/detail-page";
+@import "../non-modular/checkout";
+
+@import "../non-modular/hacks";
+
+body{
+	background: $red;
+}

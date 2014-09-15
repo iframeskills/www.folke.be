@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+.m-arrow{
+	background-repeat: no-repeat;
+	background-position-x: 50%;
+  background-position-y: 50%;
+	@at-root #{&}--down--blue{
+		background-image: url("../img/arrow_down_blue.png");
+	}
+	@at-root #{&}--down--white{
+		background-image: url("../img/arrow_down_white.png");
+	}
+	@at-root #{&}--left--white{ 
+		background-image: url("../img/arrow_left_white.png");
+	}
+	@at-root #{&}--right--white{
+		background-image: url("../img/arrow_right_white.png");
+
+	}
+  @at-root #{&}--left--gray{
+    background-image: url("../img/arrow_left_gray.png");
+  }
+  @at-root #{&}--right--gray{
+    background-image: url("../img/arrow_right_gray.png");
+  }
+  @at-root #{&}--left--gray--big{
+    background-image: url("../img/arrow_left_gray_big.png");
+  }
+  @at-root #{&}--right--gray--big{
+    background-image: url("../img/arrow_right_gray_big.png");
+  }
+}

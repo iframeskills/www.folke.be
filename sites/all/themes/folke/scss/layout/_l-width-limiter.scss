@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+/*
+body{
+  min-width: $break-small;
+  margin: 0 1em;
+}
+*/
+
+ .l-main-width-limiter {
+    max-width: $break-big;
+    position:relative;
+    margin: 0 auto;
+    padding: 0 1rem;
+ }

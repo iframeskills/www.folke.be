@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+.m-tabs__nav{
+  a.isActive, a:hover{
+    background-color: $segment-title-color;
+  }
+  a{
+    background-color: $home-bottom-inactive-color;
+    color: $segment-title-text-color;
+    font-weight: bold;
+    @include prop-rem("padding", 0.6, 1.2);
+    @include rem(1.3);
+    text-transform: uppercase;
+  }
+  li{
+    display: inline-block;
+    margin-right: 2px;
+  }
+}
+
+.m-tabs__tab{
+  display: none;
+  
+  &.isActive{
+    display:block;
+  }
+}

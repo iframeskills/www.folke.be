@@ -1,0 +1,87 @@
+@charset "UTF-8";
+
+ul.menu li{ margin: 0; padding: 0; }
+
+    
+nav.submenu {  
+    @include rem(1.15);
+    font-weight: bold;
+    background: lighten( $blue, 10%);  
+    border-bottom: 2px solid darken($blue, 20%);  
+}
+
+nav.submenu ul{  
+    display: none;
+    position:relative;
+
+    @include respond-to('tablet'){
+        display: block;
+        max-width: $break-big;
+        margin: 0 auto;
+        @include prop-rem('padding', 0, 1);
+    }
+}
+
+
+nav.submenu li {  
+
+    @include respond-to("tablet"){
+        display: inline;  
+        float: left;  
+        padding:0;
+    }
+}  
+
+nav.submenu a {  
+    color: #fff;  
+    display: inline-block;  
+    @include prop-rem("padding", 0,  1);
+    text-decoration: none;  
+    text-shadow: 1px 1px 0px #000;  
+}  
+
+
+
+nav.submenu li a {  
+    @include prop-rem('padding', 0.5, 1);
+    width: 100%;
+    border-bottom: 1px solid $blue;
+
+    @include respond-to("tablet"){
+        border-right: 1px solid lighten($blue, 5%);  
+        border-bottom: 0;
+    }
+}  
+nav.submenu li:last-child a {  
+    border-right: 0;  
+}  
+
+
+nav.submenu a:hover, 
+nav.submenu a.active-trail,
+nav.submenu a.active {  
+    background-color: lighten($blue, 5%);  
+    @include respond-to("tablet"){
+        border-right: 1px solid lighten($blue, 25%);  
+    }
+}  
+
+nav.submenu a#pull {  
+    display: block;
+    width: 100%;  
+    position: relative;  
+    text-align: left;  
+    @include prop-rem('padding', 0.5, 1);
+    background: $blue;  
+}  
+
+nav.submenu a#pull:after {  
+    content:"";  
+    background: url('../img/nav-icon.png') no-repeat;  
+    width: 30px;  
+    height: 30px;  
+    display: inline-block;  
+    position: absolute;  
+    right: 15px;  
+    top: 10px;  
+}  

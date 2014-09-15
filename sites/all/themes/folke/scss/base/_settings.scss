@@ -1,0 +1,111 @@
+@charset "UTF-8";
+/*------------------------------------*\
+    $SETTINGS
+\*------------------------------------*/
+/**
+ * Set up project-specific variables here which are then used throughout your
+ * build.
+ */
+
+$base-font: 'Open Sans Condensed', sans-serif;
+
+$theme-root: "sites/all/themes/folke/";
+$polyfills-root: "./"+$theme-root+"js/polyfills/";
+
+$language-width: 2.5;
+
+/**
+ * Colors
+ */
+$selection-color: $blue;
+
+//header
+$header-color: $white; //used to be $blue
+$header-text-color: $red;
+$header-link-back-color: $red;
+
+//menu
+$submenu-divider-color: $red; //used to be $blue
+$submenu-hover-color: rgba(248,250,250,0.9);
+$submenu-title-color: $black; //used to be $green
+$submenu-link-color: $red; //used to be $blue
+$submenu-search-color: $black; //used to be $green
+
+/* CONTENT */
+//home
+$welcome-color: rgba(48, 82, 98, 0.9);
+$welcome-color-fallback: $blue; //used to be $blue
+$welcome-text-color: $white;
+
+$bestsellers-nav-color: $black; //used to be $green
+$bestsellers-navdivider-color: #79d0b4;
+
+$home-bottom-color: #f7f8f8;
+$home-bottom-inactive-color: #c2c4c4;
+
+$catalogus-link-color: $black;
+
+//registreer
+$subtitle-color: $black; //used to be $green
+
+//footer
+$footer-title-color: $black; //used to be $green
+$footer-text-color: $white;
+$footer-link-color: $black; //used to be $green
+$footer-color: $red; //used to be $blue
+
+//* MODULES *//
+$segment-title-color: $black; //used to be $green
+$segment-title-text-color: $white;
+
+$product-item-color: $white;
+$product-item-text: $black;
+$product-item-border-color: $gray;
+$product-item-cart-color: $red;
+$product-item-divider-color: $gray;
+
+$divider-color: $gray;
+
+$button-color: $red; //used to be $blue
+$button-text-color: $white;
+$button-shadow-color: #05232b;
+
+$breadcrumbs-color: #f8f8f8;
+$breadcrumbs-text-color: $red; //used to be $blue
+$breadcrumbs-active-color: $black; //used to be $green
+
+//steps
+$step-active-color: $black; //used to be $green
+$step-active-text-color: $white;
+$step-inactive-text-color: $gray;
+
+$step2-color: #e9e9eb;
+$step3-color: #f1f1f2;
+
+$step-current-color: #3ebb93;
+
+$step-offset: 0.1;
+
+/**
+ * Assign our `$base-line-height` to a new spacing var for more transparency.
+ */
+$base-spacing-unit: 1;
+$half-spacing-unit: $base-spacing-unit / 2!default;
+
+/**
+ * Responsive stuff
+ */
+$break-very-small: 20em; // 320 @ 16px
+$break-small: 29.9em; // 480 @ 16px
+$break-small-medium: 40em; // 640 @ 16px
+$break-medium: 50em; // 800 @ 16px
+$break-medium-large: 60em; // 960 @ 16px
+$break-large: 70em; // 1120 @ 16px
+$break-very-large: 80em; // 1280 @ 16px
+
+$break-mobile: 0; /* No media query since this is the default */
+$break-tablet: $break-small-medium; //  640 @ 16px
+$break-desktop: $break-medium-large; // 960 @ 16px
+
+$break-big: 1200px;
+$break-small: 960px;

@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+.footer{
+	border-top: 2px solid darken( $black, 10% );
+	background-color: $footer-color;
+	@include prop-rem("padding-top", 1);
+	@include prop-rem("padding-bottom", 1);
+
+	.divider__block{
+		@include prop-rem("padding", 0, 1, 1, 1);
+		border-bottom: 1px solid $black;
+
+		@include respond-to("tablet"){
+			border-right: 1px solid $black;
+			border-bottom: none;
+		}
+		@include respond-to("desktop"){
+			@include prop-rem("min-height", 16);
+		}
+
+		&.divider__block--last{
+			border-right: none;
+		}
+		
+	}
+	h2,
+	h3{
+		color: $black;
+		@include prop-rem("padding-top", 1);
+	}
+	.divider__block, a{
+		color: $footer-text-color;
+	}
+	.contact-link{
+		color: $footer-link-color;
+	}
+}
+.contact-link{
+	text-decoration: underline;
+}
+
+.social__btn{
+	width: 35px;
+	height: 34px;
+	display: block;
+	float: left;
+	@include prop-rem("margin-right", 0.4);
+}
+
+.facebook-follow{
+	background-image: url('../img/facebook.png');
+}

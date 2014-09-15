@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+.login{
+   @include rem(1.25);
+
+   .segment-title{
+      @include prop-rem("margin-bottom", 1);
+   }
+   input{
+      width: 100%;
+   }
+   label{
+      @include prop-rem("margin-top", 1);
+      display: block;
+   }
+}
+
+.login__register-section{
+   @include prop-rem("padding-left", 3);
+
+   .m-button{
+      @include prop-rem("margin-top", 5.5);
+      @include prop-rem("margin-left", 2);
+   }
+}
+
+.login__login-section{
+   @include prop-rem("padding-right", 3);
+   @include prop-rem("padding-bottom", 3);
+   border-right: solid 1px $divider-color;
+   @include clearfix;
+}
+
+.forgot-pass{
+   @include prop-rem("margin-top", 0.5);
+   display: inline-block;
+   color: $submenu-title-color;
+}
+
+.login .form-actions{
+   float: right;
+   @include prop-rem("margin-top", 1.5);
+   @include prop-rem("width", 11.9);
+}

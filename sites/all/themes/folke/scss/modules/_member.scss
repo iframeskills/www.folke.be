@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+.member{
+	border: solid 1px $divider-color;
+	@at-root #{&}__img--wrapper{
+	}
+	@at-root #{&}__img{
+	}
+}
+
+.member__info{
+	width: 80%;
+	min-width: 140px;
+	margin: 0 auto;
+	@include rem(1.125);
+	@include prop-rem("margin-top", 2);
+	@include prop-rem("margin-bottom", 1);
+	h4{
+		text-transform: uppercase;
+		@include rem(1.5);
+	}
+	a{
+		color: $black;
+	}
+	.phone{
+		@include prop-rem("margin-top", 2);
+	}
+	.phone:before{
+		content: url('../img/phone_green.png');
+		margin-right: 5px;
+		margin-left: 3px;
+	}
+  .mail{
+    text-decoration: underline;
+  }
+	.mail:before{
+		content: url('../img/mail_green.png');
+		margin: 0 5px;
+	}
+}

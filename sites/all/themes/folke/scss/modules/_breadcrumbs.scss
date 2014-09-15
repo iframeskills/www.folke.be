@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+.m-breadcrumbs{
+	width: 100%;
+	background-color: $breadcrumbs-color;
+	@include prop-rem("padding", 0.75, 1);
+	text-transform: uppercase;
+	color: $breadcrumbs-text-color;
+	@include rem(1.125);
+	.home-crumb{
+		position: relative;
+		top: -4px;
+	}
+	li, img, a, span{
+		display: inline-block;
+	}
+	a{
+		color: $breadcrumbs-text-color;
+	}
+	span{
+		margin: 0 5px;
+	}
+
+	li:last-child a{
+		color: $breadcrumbs-active-color;
+	}
+}

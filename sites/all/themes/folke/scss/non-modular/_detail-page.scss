@@ -1,0 +1,146 @@
+@charset "UTF-8";
+
+
+
+.detail-page__nav{
+	@include clearfix;
+	.m-breadcrumbs{
+		width: 50%;
+		float: left;
+	}
+	@at-root #{&}--right{
+		float:right;
+		text-align: right;
+		width: 50%;
+		li{
+			display: inline-block;
+			a{
+				border: solid 1px $divider-color;
+				@include prop-rem("padding", 0.5,1);
+			}
+		}
+	}
+	.overzicht:before{
+		margin-right: 8px;
+		position: relative;
+		top: 3px;
+		content: url('../img/overzicht.png');
+	}
+}
+
+.product-detail{
+	border: solid 1px $gray;
+	@include prop-rem("padding", 1);
+}
+
+.product-detail__wrapper{
+	border-bottom: 1px solid $gray;
+	@include prop-rem("padding-bottom", 2.3);
+	@include prop-rem("margin-bottom", 2.3);
+	min-height: 545px;
+	.select-wrapper{
+		max-width: 340px;
+		@include prop-rem("margin", 1,0);
+	}
+
+	p{
+		@include rem(1);
+		@include prop-rem("margin-bottom", 1); 
+	}
+	.title{
+		@include rem(3.4);
+		@include prop-rem("line-height", 4);
+		text-transform: uppercase;
+	}
+	.price{
+		@include rem(3.125);
+		margin-bottom: 0;
+		color: $red;
+		@include prop-rem("line-height", 3);
+		span{
+			@include rem(1.25);
+		}
+	}
+}
+
+.product-detail__img__preview{
+	min-height: 430px;
+}
+
+.product-detail__img__thumb{
+	border: 1px solid $gray;
+}
+
+.amount-selection__wrapper, .cart__wrapper{
+	display: inline-block;
+	@include prop-rem("margin", 1, 0);
+}
+
+.product-detail__bottom{
+	@include prop-rem("margin", 1, 0, 0, 0.2);
+}
+
+.amount-selection__wrapper input{
+	@include prop-rem("height", 2.6);
+	@include prop-rem("width", 3.4);
+	text-align: center;
+}
+
+.amount-selection{
+	border: solid 1px $gray;
+	@include prop-rem("height", 2.6);
+	@include prop-rem("width", 2.6);
+}
+
+.cart__wrapper{
+	background-color: $red;
+	width: 210px;
+	@include prop-rem("height", 2.6);
+	position: relative;
+	top: 2px;
+}
+
+.cart{
+	margin-top: 1px;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	text-transform: uppercase;
+	color: $white;
+	@include rem(1);
+}
+
+.cart:before{
+	content: url('../img/cart.png');
+	margin-right: 10px;
+}
+
+
+.vragen a{
+	text-decoration: underline;
+}
+
+
+.detail-page__more__nav{
+	li{
+		display: inline-block;
+		margin-right: 5px;
+		color: $black;
+		text-transform: uppercase;
+		@include prop-rem("padding", 0.5 , 1);
+		border-top: solid 1px $gray;
+		border-left: solid 1px $gray;
+		border-right: solid 1px $gray;
+	}
+	.isactive{
+		background-color:  $submenu-title-color;
+		color: $white;
+	}
+}
+
+.detail-page__more__content{
+	@include prop-rem("padding", 2);
+	background-color: #f8f8f8;
+	border: solid 1px $gray;
+	@include prop-rem("margin-bottom", 1);
+}

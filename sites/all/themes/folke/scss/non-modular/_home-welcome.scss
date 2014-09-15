@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+.home-welcome{
+  position: relative;
+  @include prop-rem("min-height", 35);
+
+  @include prop-rem("padding-top", 4.3);
+  h4, p{
+    background-color: $welcome-color-fallback;
+    background-color: $welcome-color;
+    color: $white;
+    @include prop-rem("padding", 0.8, 1);
+  }
+
+  h4{
+    @include rem(2);
+    display: inline-block;
+  }
+  p{
+    @include prop-rem("margin-top", 0.5);
+    width: 100%;
+  }
+}

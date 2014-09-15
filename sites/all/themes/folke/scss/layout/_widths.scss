@@ -1,0 +1,119 @@
+@charset "UTF-8";
+/*------------------------------------*\
+    $WIDTHS
+\*------------------------------------*/
+/**
+ * Sizes in human readable format. These are used in conjunction with other
+ * objects and abstractions found in inuit.css, most commonly the grid system
+ * and faux flexbox.
+ *
+ * We have a mixin to generate our widths and their breakpoint-specific
+ * variations.
+ */
+.grid__item{
+  max-width: 100%;
+  &.one-whole{
+    max-width: 100%;
+  }
+
+}
+@mixin grid-setup($namespace: "") {
+    /**
+    * Whole
+    */
+    .#{$namespace}one-whole         { width:100%;}
+
+    /**
+    * Halves
+    */
+    .#{$namespace}one-half          { width:50%;}
+
+    /**
+    * Thirds
+    */
+    .#{$namespace}one-third         { width:33.333%;}
+    .#{$namespace}two-thirds        { width:66.666%; }
+
+    /**
+    * Quarters
+    */
+    .#{$namespace}one-quarter       { width:25%; }
+    .#{$namespace}two-quarters      { width:50%; }
+    .#{$namespace}three-quarters    { width:75%; }
+
+    /**
+    * Fifths
+    */
+    .#{$namespace}one-fifth         { width:20%; }
+    .#{$namespace}two-fifths        { width:40%; }
+    .#{$namespace}three-fifths      { width:60%; }
+    .#{$namespace}four-fifths       { width:80%; }
+
+    /**
+    * Sixths
+    */
+    .#{$namespace}one-sixth         { width:16.666%; }
+    .#{$namespace}two-sixths        { width:33%; }
+    .#{$namespace}three-sixths      { width:49%; }
+    .#{$namespace}four-sixths       { width:66%; }
+    .#{$namespace}five-sixths       { width:83.333%; }
+
+    /**
+    * Eighths
+    */
+    .#{$namespace}one-eighth        { width:12.5%; }
+    .#{$namespace}two-eighths       { width:25%; }
+    .#{$namespace}three-eighths     { width:37.5%; }
+    .#{$namespace}four-eighths      { width:49%; }
+    .#{$namespace}five-eighths      { width:62.5%; }
+    .#{$namespace}six-eighths       { width:75%; }
+    .#{$namespace}seven-eighths     { width:87.5%; }
+
+    /**
+    * Tenths
+    */
+    .#{$namespace}one-tenth         { width:10%; }
+    .#{$namespace}two-tenths        { width:20%; }
+    .#{$namespace}three-tenths      { width:30%; }
+    .#{$namespace}four-tenths       { width:40%; }
+    .#{$namespace}five-tenths       { width:49%; }
+    .#{$namespace}six-tenths        { width:60%; }
+    .#{$namespace}seven-tenths      { width:70%; }
+    .#{$namespace}eight-tenths      { width:80%; }
+    .#{$namespace}nine-tenths       { width:90%; }
+
+    /**
+    * Twelfths
+    */
+    .#{$namespace}one-twelfth       { width:8.333%; }
+    .#{$namespace}two-twelfths      { width:16.666%; }
+    .#{$namespace}three-twelfths    { width:25%; }
+    .#{$namespace}four-twelfths     { width:33%; }
+    .#{$namespace}five-twelfths     { width:41% }
+    .#{$namespace}six-twelfths      { width:49%; }
+    .#{$namespace}seven-twelfths    { width:59%; }
+    .#{$namespace}eight-twelfths    { width:66%; }
+    .#{$namespace}nine-twelfths     { width:75%; }
+    .#{$namespace}ten-twelfths      { width:83.333%; }
+    .#{$namespace}eleven-twelfths   { width:91.666%; }
+}
+
+@include grid-setup();
+
+/**
+ *
+ * `<div class="one-quarter  tablet-one-half desk-one-whole"> ... </div>`
+ *
+ * This would create a `div` that, at ‘mobile’ sizes, takes up a quarter of the
+ * horizontal space, a half of that space at ‘tablet’ sizes, and goes full width
+ * at ‘desktop’ sizes.
+ *
+ */
+
+@include respond-to( "tablet" ) {
+    @include grid-setup("tablet-");
+}
+
+@include respond-to( "desktop" ) {
+    @include grid-setup("desk-");
+}

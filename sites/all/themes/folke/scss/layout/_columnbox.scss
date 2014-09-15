@@ -1,0 +1,27 @@
+//
+// column box
+//
+.m-column-box,
+.table{
+  display: table;
+  -dt-display: table;
+  table-layout: fixed;
+  width: 100%;
+
+  .m-column-box__row,
+  .table-row{
+    display:table-row;
+    -dt-display:table-row;
+  }
+
+  .m-column-box__column,
+  .table-cell{
+    display:table-cell;
+    -dt-display: table-cell;
+  }
+  .table-column{
+    display: table-column;
+  }
+
+  @include respond-to( "lt-ie9" ) {  behavior: url( $polyfills-root + "display-table.min.htc") !important; }
+}
