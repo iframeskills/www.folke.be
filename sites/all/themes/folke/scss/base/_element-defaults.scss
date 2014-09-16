@@ -123,5 +123,8 @@ ul,li{
 
 a{
   color: $black;
+}
+
+a[href^='tel:']{
   text-decoration: none;
 }

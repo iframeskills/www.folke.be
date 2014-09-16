@@ -81,40 +81,8 @@
  * @ingroup themeable
  */
 
-hide($content['field_background_image']);
-
-
-hide($content['field_achtergrondafbeelding']);
-
-
-hide($content['field_grootte']);
-hide($content['field_afbeeldingspositie']);
-
 ?>
-<?php 
-if( $type == 'hoofdartikel' ){ 
-?>
-<section class="carousel">
-  <div class="carousel__wrapper">
-    <div class="carousel__image">
-      <div class="js-carousel" data-cycle-fx="scrollHorz" data-cycle-timeout="10000" data-cycle-prev="#prev" data-cycle-next="#next">
-        <?php print render($content['field_achtergrondafbeelding']); ?>
-      </div>
-    </div>
-  </div>
-</section>
-<div class="l-main-width-limiter">
-<div class="home-welcome desk-two-thirds clearfix">
-  <h4<?php print $title_attributes; ?>><?php print $title; ?></h4>
-  <div class="carousel__nav fl-r clearfix">
-    <button id="prev" class="fl-l carousel__nav--left m-arrow m-arrow--left--white"></button>
-    <button id="next" class="fl-l carousel__nav--right m-arrow m-arrow--right--white"></button>
-  </div>
-  <?php print render($content); ?>
-</div>
-</div>
-
-<?php } else if ($page == 1) { ?>
+<?php if ($page == 1) { ?>
 <section class="over-folke page-container l-main-width-limiter">
   <div class="over-container__top">
     <h3 class="segment-title icon icon--article">
@@ -122,22 +90,44 @@ if( $type == 'hoofdartikel' ){
     <a href="#" class="over-container__contact"></a>
   </div>
   <div class="over__content">
+    <?php if($content['field_image']){ ?>
+    <div style="float:<?php if( render($content['field_afbeeldingspositie'])=='links'){ print 'left';} else {  print 'right'; }?>; margin-<?php if( render($content['field_afbeeldingspositie'])=='links'){ print 'right';} else {  print 'left'; }?>:1em; margin-bottom:1em;">
+      <?php print render($content['field_image']);  ?>
+    </div>
+    <?php } ?>
+
       <?php print render($content['body']); ?>
     </div>
   </div>
 </section>
 <?php } else { ?>
+
+
+
+       
+
 <div class="l-grid__item one-whole desk-<?php print render($content['field_grootte']); ?>">
-  <div class="over-container__top">
-    <h3 class="segment-title icon icon--article">
-      <?php print $title; ?>&nbsp;</h3>
-    <a href="#" class="over-container__contact"></a>
-  </div>
+  
+    <div class="over-container__top">
+      <a href="<?php print $node_url; ?>">
+        <h3 class="segment-title icon icon--article">
+        <?php print $title; ?>&nbsp;</h3>
+        </a>
+        <div><em>Artikeltje van <?php print format_date($node->created, 'custom', 'l j F Y'); ?></em></div>
+    </div>
+  
   <div class="over__content clearfix">
+    <?php if($content['field_image']){ ?>
     <div style="float:<?php if( render($content['field_afbeeldingspositie'])=='links'){ print 'left';} else {  print 'right'; }?>; margin-<?php if( render($content['field_afbeeldingspositie'])=='links'){ print 'right';} else {  print 'left'; }?>:1em; margin-bottom:1em;">
       <?php print render($content['field_image']);  ?>
     </div>
+    <?php } ?>
     <?php print render($content['body']); ?>
+    <?php
+      /*if($teaser && $content['body']){
+            print l(t('...'), $node_url, array('attributes' => array('class' => t('newreadmore'))));
+        }*/
+    ?>
   </div>
 </div>
 <?php } ?>

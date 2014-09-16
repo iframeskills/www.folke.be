@@ -4,7 +4,7 @@
   position: relative;
   @include prop-rem("min-height", 35);
 
-  @include prop-rem("padding-top", 4.3);
+  @include prop-rem("padding-top", 2);
   h4, p{
     background-color: $welcome-color-fallback;
     background-color: $welcome-color;
@@ -19,5 +19,9 @@
   p{
     @include prop-rem("margin-top", 0.5);
     width: 100%;
+  }
+
+  @include respond-to("tablet"){
+    @include prop-rem("padding-top", 12);
   }
 }

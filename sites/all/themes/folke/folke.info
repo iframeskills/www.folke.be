@@ -7,8 +7,16 @@ core = 7.x
 stylesheets[all][] = css/screen.css
 
 regions[header] = Header
+regions[menu] = Menu
 regions[highlighted] = Higlighted
+
+
 regions[sidebar_first] = Sidebar
 regions[sidebar_second] = Sidebar second
 regions[content] = Content
+
+regions[footer_first] = Footer first
+regions[footer_second] = Footer second
+regions[footer_third] = Footer third
+regions[footer_fourth] = Footer fourth
 regions[footer] = Footer

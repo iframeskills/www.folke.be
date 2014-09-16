@@ -143,15 +143,3 @@ function folke_menu_tree__main_menu($var)
 }
 */
 
-function folke_preprocess_node(&$variables, $hook) {
-    if( $variables['is_front']){
-        $variables['theme_hook_suggestions'][]='node__front';
-    } ;
-
-}
-
-function folke_node_view_alter(&$build) {
-    if ($build['#node']->type == 'page') {
-        unset($build['links']['node']['#links']['node-readmore']);
-    }
-}

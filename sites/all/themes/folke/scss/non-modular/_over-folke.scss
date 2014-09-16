@@ -5,9 +5,18 @@
 		background-image: url("../img/carousel/over-folke.jpg");
 	}
 }
+
+
 .over-container__top{
 	@include clearfix;
-	@include prop-rem("margin-bottom", 1);
+	@include prop-rem("margin-bottom", 0.5);
+	text-decoration: none;
+
+	em{
+		color: $gray;
+
+	}
+
 }
 .page-container{
 	@include prop-rem("padding", 2, 1);
@@ -22,6 +31,8 @@
 		float: right;
 		background-image: url('../img/mail.png');
 	}
+	background: white;
+	background: rgba(255,255,255, 0.95);
 }
 
 .over__content__text{

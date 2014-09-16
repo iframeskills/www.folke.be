@@ -13,6 +13,7 @@ requirejs.config({
     // the '.js' file extension.
     'jquery' : 'lib/jquery-1.10.2.min',
     'carousel' : 'lib/jquery.cycle2',
+    'carousel-center' : 'lib/jquery.cycle2.center',
     'modernizr' : 'lib/modernizr.custom'
   },
   shim: {
